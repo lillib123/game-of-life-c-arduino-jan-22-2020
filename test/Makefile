@@ -1,11 +1,12 @@
-PROGNAME=fizzbuzz-test
+PROGNAME=life-test
 OBJS=$(patsubst %.c, %.o, $(wildcard *.c))
 
-CFLAGS=-I../src -I../unity -std=c99
+CFLAGS=-I../src -I../unity -I. -std=c99
+CXXFLAGS=-I../src -I../unity -I.
 VPATH=../src
 
 LIBS=-L../unity -lunity
-SUT=fizzbuzz.o
+SUT=life.o
 
 all: $(PROGNAME)
 	./$(PROGNAME)

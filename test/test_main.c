@@ -2,7 +2,7 @@
 
 static void run_all_tests(void)
 {
-    RUN_TEST_GROUP(FizzBuzz);
+    RUN_TEST_GROUP(Life);
 }
 
 int main(int argc, const char *argv[])

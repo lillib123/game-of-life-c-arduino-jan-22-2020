@@ -1,2 +1,4 @@
 *.o
-fizzbuzz
+*.hex
+*.elf
+sketch.json

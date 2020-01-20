@@ -1,11 +1,17 @@
-PROGNAME=fizzbuzz
+
 OBJS=$(patsubst %.c, %.o, $(wildcard *.c))
+
+CXXOBJS=$(patsubst %.cpp, %.o, $(wildcard *.cpp))
+
 
 CFLAGS=-std=c99
 
-$(PROGNAME): $(OBJS)
-	$(CC) -o $@ $^
+.PHONY: all clean
+
+all: 
+	arduino-cli compile
 
 clean:
 	rm -f *.o
-	rm -f $(PROGNAME)
+	rm -f *.elf
+	rm -f *.hex
