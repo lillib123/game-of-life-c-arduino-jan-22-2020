@@ -23,3 +23,10 @@ void life_setup(void *matrix)
 void life_loop(void *matrix)
 {
 }
+
+int rules(int cell, int numberOfNeighbors) {
+    if (numberOfNeighbors == 2) {
+        return 1;
+    }
+    return 0;
+};

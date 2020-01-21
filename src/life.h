@@ -11,6 +11,7 @@ extern "C"
 
     void life_setup(void *);
     void life_loop(void *);
+    int rules(int cell, int numberOfNeighbors);
 
 #ifdef __cplusplus
 }
