@@ -25,8 +25,17 @@ void life_loop(void *matrix)
 }
 
 int rules(int cell, int numberOfNeighbors) {
-    if (numberOfNeighbors == 2) {
-        return 1;
+    if (cell == 1) {
+            if (numberOfNeighbors == 2 || numberOfNeighbors == 3) {
+            return 1;
+        }
+        return 0;
     }
-    return 0;
+    else {
+        if (numberOfNeighbors == 3)
+            return 1;
+        else {
+            return 0;
+        }
+    }    
 };
