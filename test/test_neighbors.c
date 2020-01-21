@@ -8,7 +8,7 @@ TEST_SETUP(Neighbors) {}
 
 TEST_TEAR_DOWN(Neighbors) {}
 
-TEST(Neighbors, something)
+TEST(Neighbors, read_grid_right_neighbor)
 {
     int grid[32][64] = {
         {0, 0, 0},
@@ -23,5 +23,5 @@ TEST(Neighbors, something)
 
 TEST_GROUP_RUNNER(Neighbors)
 {
-    RUN_TEST_CASE(Neighbors, something)
+    RUN_TEST_CASE(Neighbors, read_grid_right_neighbor)
 }
