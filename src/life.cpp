@@ -42,7 +42,7 @@ int rules(int cell, int numberOfNeighbors) {
 
 int getNumberOfNeighbors(int grid[32][64], int row, int column)
 {
-    if(grid[1][2] == 1)
+    if(grid[row][column+1] == 1)
     {
         return 1;
     }
@@ -50,4 +50,5 @@ int getNumberOfNeighbors(int grid[32][64], int row, int column)
     {
         return 0;
     }
+
 }
