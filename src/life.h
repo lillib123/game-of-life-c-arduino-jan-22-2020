@@ -12,6 +12,8 @@ extern "C"
     void life_setup(void *);
     void life_loop(void *);
     int rules(int cell, int numberOfNeighbors);
+    int getNumberOfNeighbors(int grid[32][64], int row, int column);
+    //int getNumberOfNeighbors(int grid[32][64]);
 
 #ifdef __cplusplus
 }

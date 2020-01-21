@@ -39,3 +39,15 @@ int rules(int cell, int numberOfNeighbors) {
         }
     }    
 };
+
+int getNumberOfNeighbors(int grid[32][64], int row, int column)
+{
+    if(grid[1][2] == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
