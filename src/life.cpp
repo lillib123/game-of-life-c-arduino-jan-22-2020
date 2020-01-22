@@ -42,13 +42,18 @@ int rules(int cell, int numberOfNeighbors) {
 
 int getNumberOfNeighbors(int grid[32][64], int row, int column)
 {
-    if(grid[row][column+1] == 1)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    int live_sum = 0;
 
+    int i_start = (row-1 <= -1 ? 0 : row-1);
+    int j_start = (column-1 <= -1 ? 0 : column-1);
+    int j_end = column+1 >= 64 ? 63 : column+1;
+    int i_end = row+1 >= 32 ? 31 : row+1;
+
+    for (int i = i_start; i<=i_end; i++){
+        for (int j = j_start; j<=j_end; j++){
+            live_sum += grid[i][j];
+        }
+    }
+    live_sum -= grid[row][column];
+    return live_sum;
 }
