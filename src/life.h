@@ -19,7 +19,7 @@ extern "C"
     void life_loop(void *);
     int rules(int cell, int numberOfNeighbors);
     int getNumberOfNeighbors(board_t *grid, int row, int column);
-    board_t* unitLifeCycle(int *grid);
+    board_t* unitLifeCycle(board_t *grid);
 
 #ifdef __cplusplus
 }

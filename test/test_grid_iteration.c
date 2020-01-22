@@ -8,39 +8,32 @@ TEST_SETUP(GridIteration) {}
 
 TEST_TEAR_DOWN(GridIteration) {}
 
-TEST(GridIteration, single_live_cell_with_no_live_neighbors_will_die)
+TEST(GridIteration, rules_work_through_iteration)
 {
-    /*
-    int startingGrid[32][64] = {{        
-        {0,0,0},
-        {0,1,0},
-        {0,0,0}
-    };
-
-    };
-
-        int expectedGrid[32][64] = {
-        {0,0,0},
-        {0,0,0},
-        {0,0,0}
-    };*/
-
-
-
     board_t main_grid = {
         .board = { 
-            {0,0,0},
-            {0,1,0},
-            {0,0,0}
+            {1,1,1,0},
+            {0,1,1,0},
+            {0,0,0,0},
+            {0,0,1,1}
+        }
+    };
+
+        board_t expected_grid = {
+        .board = { 
+            {1,0,1,0},
+            {1,0,1,0},
+            {0,1,0,1},
+            {0,0,0,0}
         }
     };
 
     main_grid.board[0][0] = 1;
 
-    // TEST_ASSERT_EQUAL_INT32_ARRAY(unitLifeCycle(startingGrid),expectedGrid, (32*64));
+    TEST_ASSERT_EQUAL_UINT8_ARRAY(unitLifeCycle(main_grid.board),expected_grid.board, (32*64));
 }
 
 TEST_GROUP_RUNNER(GridIteration)
 {
-    RUN_TEST_CASE(GridIteration, single_live_cell_with_no_live_neighbors_will_die);
+    RUN_TEST_CASE(GridIteration, rules_work_through_iteration);
 }
