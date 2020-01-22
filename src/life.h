@@ -1,6 +1,8 @@
 #ifndef _LIFE_H_
 #define _LIFE_H_
 
+#include <stdint.h>
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -9,11 +11,15 @@ extern "C"
 #define BOARDX 64
 #define BOARDY 32
 
+    typedef struct {
+        uint8_t board[32][64];
+    } board_t;
+
     void life_setup(void *);
     void life_loop(void *);
     int rules(int cell, int numberOfNeighbors);
-    int getNumberOfNeighbors(int grid[32][64], int row, int column);
-    //int getNumberOfNeighbors(int grid[32][64]);
+    int getNumberOfNeighbors(board_t *grid, int row, int column);
+    board_t* unitLifeCycle(int *grid);
 
 #ifdef __cplusplus
 }

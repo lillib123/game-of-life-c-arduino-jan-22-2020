@@ -40,7 +40,7 @@ int rules(int cell, int numberOfNeighbors) {
     }    
 };
 
-int getNumberOfNeighbors(int grid[32][64], int row, int column)
+int getNumberOfNeighbors(board_t *grid, int row, int column)
 {
     int live_sum = 0;
 
@@ -51,9 +51,21 @@ int getNumberOfNeighbors(int grid[32][64], int row, int column)
 
     for (int i = i_start; i<=i_end; i++){
         for (int j = j_start; j<=j_end; j++){
-            live_sum += grid[i][j];
+            live_sum += grid->board[i][j];
         }
     }
-    live_sum -= grid[row][column];
+    live_sum -= grid->board[row][column];
     return live_sum;
+}
+
+board_t* unitLifeCycle(board_t *grid) {
+    
+    static board_t next_grid = {0};
+    
+    for (int i = 0; i<32; i++)
+        for (int j = 0; j<64; j++)
+            next_grid.board[i][j] = rules(grid->board[i][j], getNumberOfNeighbors(grid,i,j)); 
+
+    return &next_grid; 
+
 }
